@@ -46,6 +46,8 @@
 		FCB30D502C089F11005BD019 = {
 			isa = PBXGroup;
 			children = (
+				FCA151132C0C6D77002A5810 /* LICENSE */,
+				FCA151112C0C6C9A002A5810 /* README.md */,
 				FCB30D5B2C089F11005BD019 /* PolyMap Inspector */,
 				FCB30D5A2C089F11005BD019 /* Products */,
 			);
@@ -70,8 +72,6 @@
 				FCB30D622C089F11005BD019 /* Preview Content */,
 				FCB30D6A2C089FF1005BD019 /* KMLParser.swift */,
 				FCB30D6C2C08F721005BD019 /* DocumentPicker.swift */,
-				FCA151112C0C6C9A002A5810 /* README.md */,
-				FCA151132C0C6D77002A5810 /* LICENSE */,
 			);
 			path = "PolyMap Inspector";
 			sourceTree = "<group>";

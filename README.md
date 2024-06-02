@@ -1,10 +1,3 @@
-//
-//  README.md
-//  PolyMap Inspector
-//
-//  Created by Ron Tabachnik on 2024-06-02.
-//
-
 # KML File Viewer and Polygon Interaction App
 
 ## Overview
@@ -28,6 +21,25 @@ This application allows users to open and parse KML (Keyhole Markup Language) fi
 - **User Interaction Handling**: Manages map interactions and delegate methods through a `Coordinator` class.
 - **Distance Calculation Algorithm**: Iterates through each edge of the polygon and uses vector mathematics to determine the shortest distance.
 
+### Drawing the Polygon and Calculating Distance
+- **Drawing the Polygon**:
+  - The polygon is drawn using the `MKPolygon` class from MapKit, which renders the polygon based on an array of coordinates extracted from the KML file.
+
+- **Distance Calculation**:
+  - The distance from a tap point to the nearest edge of the polygon is calculated using the **Point-Line Distance Algorithm**.
+  - This algorithm involves vector projection and the Euclidean distance formula to find the shortest distance from a point to a line segment.
+
+#### Distance Calculation Formula
+The formula used to calculate the distance from a tap point to the nearest edge of the polygon is based on the Euclidean distance formula. Here are the steps involved:
+
+1. **Vector Representation**: Represent the line segment as a vector and calculate the vector from the tap point to a point on the line segment.
+2. **Projection Scalar \( t \)**: Calculate the scalar value \( t \) representing the projection of the tap point onto the line segment.
+3. **Closest Point on Segment**: Find the closest point on the line segment to the tap point using the scalar \( t \).
+4. **Euclidean Distance**: Calculate the Euclidean distance between the tap point and the closest point on the line segment.
+
+The formula ensures accurate distance measurements from the tap point to the edges of the polygon.
+
+
 ## Usage
 1. Load a KML file into the application.
 2. Visualize the geographic data on the map.
@@ -48,5 +60,4 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## License
 This project is licensed under the MIT License.
-
 
