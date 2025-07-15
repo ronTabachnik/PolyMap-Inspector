@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var distanceToPolygon: CLLocationDistance?
     @State private var tapLocation: CLLocationCoordinate2D?
     @State private var isInsidePolygon: Bool = false
-
+    
     var body: some View {
         VStack {
             if let url = selectedFileURL {
@@ -25,13 +25,13 @@ struct ContentView: View {
             } else {
                 Text("No file selected")
             }
-
+            
             if isInsidePolygon {
                 Text("The point is inside the polygon")
             } else if let distance = distanceToPolygon {
                 Text("Distance to polygon: \(distance, specifier: "%.2f") meters")
             }
-
+            
             Button(action: {
                 showDocumentPicker = true
             }) {
@@ -47,8 +47,14 @@ struct ContentView: View {
         }
         .padding()
     }
-
+    
     private func loadKML(from url: URL) {
+        var didStartAccessing = url.startAccessingSecurityScopedResource()
+        defer {
+            if didStartAccessing {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
         do {
             let data = try Data(contentsOf: url)
             let parser = KMLParser()
